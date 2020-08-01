@@ -62,7 +62,7 @@ end
 
 %------2.Second Iteration
 for k = 1:(K-1)
-%---Acquire x、u
+%---Acquire x銆乽
 x = X(:,k);
 u = U(:,k);
 %---Call function 'Compute_matrixes'
@@ -102,9 +102,9 @@ if (norm(Delta,2) <= Delta_tol)&&(norm(V,1) <= v_tol)&&(Delta_sigma <=sigma_tol)
     break
 end
 
-%------Update A_Bar、B_Bar、C_Bar、Sigma_Bar、Z_Bar
+%------Update A_Bar銆丅_Bar銆丆_Bar銆丼igma_Bar銆乑_Bar
 for k = 1:(K-1)
-%---Acquire x、u
+%---Acquire x銆乽
 x = X(:,k);
 u = U(:,k);
 %---Call function 'Compute_matrixes'
@@ -131,8 +131,8 @@ subplot(3,3,1)
 plot(0:tao:1,display_position)
 grid on
 legend('x','y','z');
-xlabel('时间')
-ylabel('位置')
+xlabel('Time')
+ylabel('Position')
 title('Position--Time')
 %---Velocity--Time
 display_velocity(1:3,:) = X(5:7,:);
@@ -140,8 +140,8 @@ subplot(3,3,2)
 plot(0:tao:1,display_velocity)
 grid on
 legend('x','y','z');
-xlabel('时间')
-ylabel('速度')
+xlabel('Time')
+ylabel('Velocity')
 title('Velocity--Time')
 %---Thrust--Time
 display_netthrust = U;
@@ -149,16 +149,16 @@ subplot(3,3,3)
 plot(0:tao:1,display_netthrust)
 grid on
 legend('x','y','z');
-xlabel('时间')
-ylabel('净推力')
+xlabel('Time)
+ylabel('Net thrust')
 title('Thrust--Time')
 %---Mass--Time
 mass = X(1,:);
 subplot(3,3,4)
 plot(0:tao:1,mass)
 grid on
-xlabel('时间')
-ylabel('质量')
+xlabel('Time')
+ylabel('Mass')
 title('Mass--Time')
 %---Allvelocity--Time
 display_allvelocity = zeros(1,K);
@@ -168,8 +168,8 @@ end
 subplot(3,3,5)
 plot(0:tao:1,display_allvelocity)
 grid on
-xlabel('时间')
-ylabel('总速度')
+xlabel('Time')
+ylabel('All velocity')
 title('Allvelocity--Time')
 %---Allthrust--Time
 display_allthrust = zeros(1,K);
@@ -181,8 +181,8 @@ hold on
 plot(0:tao:1,display_allthrust,'-')
 plot(0:tao:1,display_allthrust,'.')
 grid on
-xlabel('时间')
-ylabel('总净推力')
+xlabel('Time')
+ylabel('All thrust')
 title('Allthrust--Time')
 hold off
 %---omiga--Time
@@ -203,8 +203,8 @@ end
 subplot(3,3,8)
 plot(0:tao:1,display_allomiga)
 grid on
-xlabel('时间')
-ylabel('总角速度')
+xlabel('Time')
+ylabel('All omiga')
 title('Allomiga--Time')
 %---Tilt--Time
 display_tilt = zeros(1,K);
@@ -214,8 +214,8 @@ end
 subplot(3,3,9)
 plot(0:tao:1,display_tilt)
 grid on
-xlabel('时间')
-ylabel('倾斜角')
+xlabel('Time')
+ylabel('Tilt')
 title('Tilt--Time')
 
 %------Trajectory plot
@@ -258,29 +258,29 @@ figure
 subplot(2,2,1)
 plot(1:iterate,Diverse(1,:))
 grid on
-xlabel('迭代次数')
-ylabel('状态&控制误差')
+xlabel('Iteration times')
+ylabel('State & Control error')
 title('state & control error--iterate time')
 %---Error visual control
 subplot(2,2,2)
 plot(1:iterate,Diverse(2,:))
 grid on
-xlabel('迭代次数')
-ylabel('虚拟控制')
+xlabel('Iteration times')
+ylabel('Visual control')
 title('visual control--iterate time')
 %---Error time
 subplot(2,2,3)
 plot(1:iterate,Diverse(3,:))
 grid on
-xlabel('迭代次数')
-ylabel('估计时间')
+xlabel('Iteration times')
+ylabel('Flight time error')
 title('flight time error--iterate time')
 %---Flight time
 subplot(2,2,4)
 plot(1:iterate,sigma_store)
 grid on
-xlabel('迭代次数')
-ylabel('飞行时间')
+xlabel('Iteration times')
+ylabel('Flight time')
 title('flight time--iterate time')
 
 
